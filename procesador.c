@@ -9,8 +9,23 @@ void init_processor(processor *cpu){
 }
 
 void load_program(processor *cpu, const char *filename){
+  
+  char line[256];
+  int c = 0;
   scanf("%s", filename);
   FILE *fp = fopen(filename, "r");
+  if(fp == NULL){
+    printf("Archivo no encontrado\n");
+    return;
+  }
+
+  while(fgets(*line, 256, fp) != NULL){ 
+    strcpy(cpu->code_memory->operator, strtok(line, " "));
+    cpu->code_memory->operand1 = strtok(NULL, " ")[0];
+  }
+
+  fclose(fp);
+
   
 }
 

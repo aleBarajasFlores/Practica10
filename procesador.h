@@ -1,5 +1,6 @@
 #ifndef PROCESADOR_H
 #define PROCESADOR_H
+#include <stdbool.h>
 
 #define MEM_SIZE 256
 #define MAX_INSTRUCTIONS 100
@@ -12,7 +13,7 @@
 typedef struct {
   char operator[6];
   char operand1;
-  int operand2:
+  int operand2;
 } instruction;
 
 typedef struct {
@@ -29,3 +30,5 @@ void update_flags(processor *cpu, int result);
 void alu_and_control_unity(processor *cpu);
 void print(processor *cpu);
 void fprint(processor *cpu);
+
+#endif
